@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Dosis:wght@200;300;400;500;600;700;800&family=Oswald:wght@200;300;400;500;600;700&family=Signika:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Título da Página -->
+    <title>Novo Método</title>
+
+    <style>
+        .delay{display:none;}
+
+        body {
+        font-size: 16px;
+        background-color: #000;
+        min-height: 100%;
+      }
+
+      @media (max-width: 768px) {
+        .video-player {
+          width: 100%;
+          background: 0 0;
+        }
+        .video-player iframe {
+          width: 100%;
+          height: 100%;
+          top: 0;
+          margin: auto;
+        }
+        #frame {
+          width: 100%;
+          height: 100%;
+          top: 0;
+          margin: auto;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .video-player {
+          margin-top: 0 !important;
+        }
+      }
+
+      .container{
+        padding: 0px!important;
+      }
+
+      .a-btn {
+        text-decoration: none;
+        -webkit-font-smoothing: antialiased;
+        margin: 0;
+        border: 0; 
+        font: inherit; 
+        vertical-align: baseline;
+        color: #2e82bc; 
+        outline: 0; 
+        line-height: 1; 
+        text-align: center; 
+        position:relative!important; display: inline-block!important;
+        border-style: solid; 
+        width: 100%; padding-left: 0!important; padding-right: 0!important; 
+        margin-bottom: 10px; 
+        padding: 22px 44px; border-color: #ff5535; border-width: 0px; 
+        border-radius: 6px; 
+        background: linear-gradient(to bottom, #0DC51D 0%, #005200 100%);
+        box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.5); 
+        text-decoration: none!important;
+        cursor: pointer;
+
+         animation: pulse 1.5s infinite alternate;
+        animation-name: pulse;
+        -webkit-animation-name: pulse;
+        animation-duration: 1.5s;
+        -webkit-animation-duration: 1.5s;
+        animation-iteration-count: infinite;
+        -webkit-animation-iteration-count: infinite;
+        text-decoration: none;
+      }
+
+      @keyframes pulse{
+        0%,100%{transform:scale(.9);opacity:.9;}
+        50%{transform:scale(1);opacity:1;}
+        }
+        @-webkit-keyframes pulse{
+        0%,100%{-webkit-transform:scale(.95);opacity:.7}
+        50%{-webkit-transform:scale(1);opacity:1}
+      }
+
+      .a-btn:hover {
+          background: #05FF05;
+          color: #fff;
+          border-radius: 5px;
+          box-shadow: 0 0 5px #05ff05, 0 0 25px #05ff05, 0 0 50px #05ff05, 0 0 100px #05ff05;
+      }
+
+      .span-btn {
+        text-decoration: none;
+        -webkit-font-smoothing: antialiased; 
+        text-align: center;
+        margin: 0; 
+        border: 0; 
+        font: inherit;
+        vertical-align: baseline;
+        display: block; 
+        position: relative; 
+        z-index: 1; 
+        padding: 0 15px; 
+        white-space: normal; 
+        font-size: 20px;
+        color: #ffffff; 
+        font-family: Oswald; 
+        font-weight: bold; 
+        text-shadow: #000000 0px 1px 0px;
+        text-decoration: none;
+      }
+      .span-btn2 {
+        -webkit-font-smoothing: antialiased; 
+        text-align: center;
+        padding: 0; border: 0;
+        font: inherit; 
+        vertical-align: baseline; 
+        display: block; 
+        position: relative;
+        z-index: 1; 
+        margin: .2em 0 -.5em; 
+        font-size: 15px; 
+        color: #f5e051; 
+        font-family: Cabin; 
+        font-weight: bold; 
+        font-style: italic;
+        text-shadow: #000000 0px 1px 0px;
+      }
+
+      h3 {
+        font-size: 25px;
+      }
+
+      h4 {
+        color: #ADADAD;
+        font-size: 16px;
+      }
+
+      .texto-branco{
+        color: #fff;
+      }
+
+      .texto-branco-div {
+        text-align: center;
+        color: #fff;
+      }
+
+      .som{
+        width: 100%;
+      }
+
+      .last-pg{
+        background-color: black;
+        width: 100%;
+        height: 100%;
+        padding-bottom: 5px;
+        padding-top: 10px;
+      }
+
+      .modal{
+        background-color: white;
+        border-radius: 20px;
+        margin: 50px auto;
+        overflow:auto; 
+        max-width: 500px;
+        z-index: 10000000;
+        padding: 10px;
+        color: #646464;
+      }
+
+      .close-modal{
+          cursor: pointer;
+          border: none;
+          width: 40px;
+          height: 40px;
+          border-radius: 50px;
+      }
+
+      .modal::-webkit-scrollbar {
+          width: 6px;
+      }
+
+      .modal-footer button{
+        margin: 0 auto;
+        border: none;
+        padding: 10px 40px;
+      }
+
+      .dim {
+        /* For Internet Explorer */
+        box-shadow: 0 0 0 1000px rgba(0, 0, 0, .6);
+          
+        /* For other browsers */
+        box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .6);
+      }
+
+      /* Cometários FB*/
+      a.button-IWiNKI0399434-element {
+        background-color: #ffafcc;
+        border-radius: 4px;
+        border: none;
+        color: #ffffff;
+        padding: 16px 32px 16px 32px;
+        font-weight: 600;
+        display: block;
+        width: fit-content;
+        text-align: center;
+        margin: 4vh auto 6vh auto;
+        font-size: 1.49vw;
+        box-sizing: border-box;
+        max-width: 100%;
+      }
+
+      @media (max-width: 1200px) {
+        a.button-IWiNKI0399434-element {
+          font-size: 3.38vw;
+          margin: 2.64vh auto 4.5vh auto
+        }
+      }
+
+      @media (max-width: 600px) {
+        a.button-IWiNKI0399434-element {
+          font-size: 4.50vw;
+        }
+      }
+
+      .px-1{padding-left:4px;padding-right:4px}
+      .pt-0.5{padding-top:2px}
+      .mt-4{margin-top:16px}
+      @media (min-width:640px){.sm\:text-sm{font-size:14px;line-height:20px}}
+      .mt-2{margin-top:8px}
+      .mb-2{margin-bottom:8px}
+      .flex{display:flex}
+      .w-full{width:100%}
+      .space-x-1>:not([hidden])~:not([hidden]){margin-left:.25rem}
+      .items-center{align-items:center}
+      .font-\[Helvetica\]{font-family:Helvetica,Arial,sans-serif}
+      .cursor-pointer{cursor:pointer}
+      .rounded-full{border-radius:99999px}
+      .h-12{height:48px}.w-12{width:48px}
+      .flex-col{flex-direction:column}
+      .py-1{padding-top:4px;padding-bottom:4px}
+      .px-3{padding-left:12px;padding-right:12px}
+      .pl-0\.5,.px-0\.5{padding-left:2px}
+      .rounded-\[18px\]{border-radius:18px}
+      .bg-stone-100{background-color:#f5f5f4}
+      .px-0\.5{padding-right:2px}
+      .font-semibold{font-weight:600}
+      .text-\[\#365899\]{color:#365899}
+      .text-\[13px\]{font-size:13px}
+      .leading-4{line-height:16px}
+      .hover\:underline:hover{text-decoration-line:underline}
+      .text-sm{font-size:14px}
+      .relative{position:relative}
+      .justify-between{justify-content:space-between}
+      .grow{flex-grow:1}
+      .text-xs{font-size:12px}
+      .text-\[\#90949c\]{color:#90949c}
+      .ml-px{margin-left:1px}
+      .gap-1{gap:4px}
+      .w-fit{width:fit-content}
+      .hidden{display:none}
+      .-mt-1{margin-top:-4px}
+      .-mt-2{margin-top:-8px}
+      .mr-2{margin-right:8px}
+      .h-4,.h-5{height:16px}
+      .drop-shadow{--tw-drop-shadow:drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1)) drop-shadow(0 1px 1px rgba(0, 0, 0, 0.06));filter:var(--tw-drop-shadow)}
+      .bg-slate-50{background-color:#f8fafc}
+      .py-0\.5{padding-top:2px;padding-bottom:2px}
+      .pr-1{padding-right:4px}
+      .block{display:block}
+      .w-4{width:16px}
+      .z-10{z-index:10}
+      .-ml-1{margin-left:-4px}
+      .ml-4{margin-left:16px}
+      .gap-x-0\.5{column-gap:2px}
+      .mr-0\.5{margin-right:2px;margin-left:2px}
+      .border-l{border-left-width:1px}
+      .border-slate-300{border-color:#cbd5e1}
+      .border-dotted{border-style:dotted}
+      .ml-5{margin-left:20px}.h-8{height:32px}
+      .w-8{width:32px}.h-10{height:40px}
+      .w-10{width:40px}
+      @media (min-width:640px){.sm\:w-16{width:64px}.sm\:ml-12{margin-left:48px}}
+      .pl-2{padding-left:8px}
+
+      .fbComments-nePoMc4912814-element {
+      max-width: 800px;
+      margin: 15px auto 20px auto;
+      padding: 16px;
+      border-radius:20px;
+      background-color:#fff;
+      }
+      .fbComments-nePoMc4912814-element p {
+      font-family: 'Helvetica', 'Arial', sans-serif;
+      }
+
+      a.button-nmYvzv4924929-element {
+      background-color: #ffafcc;
+      border-radius: 4px;
+      border: none;
+      color: #ffffff;
+      padding: 16px 32px 16px 32px;
+      font-weight: 600;
+      display: block;
+      width: fit-content;
+      text-align: center;
+      margin: 6vh auto 1vh auto;
+      font-size: 1.49vw;
+      box-sizing: border-box;
+      max-width: 100%;
+      }
+      @media (max-width: 1200px) {
+      a.button-nmYvzv4924929-element {
+      font-size: 3.38vw;
+      margin: 3.96vh auto 0.75vh auto
+      }
+      }
+      @media (max-width: 600px) {
+        a.button-nmYvzv4924929-element {
+          
+        }
+      }
+
+      .resp{
+        margin-left: 45px;
+        margin-top: -15px;
+        border-left: 1px solid #dadada;
+        padding-left: 10px;
+      }
+
+      h3 {
+        font-size: 25px;
+      }
+
+      h4 {
+        color: #ADADAD;
+        font-size: 16px;
+      }
+
+      .footer p{
+        font-weight: 100;
+        font-size: 12px;
+        margin: 20px auto;
+        padding: 2px 28px;
+        text-align: center;
+        margin-bottom: 1rem;
+        color: #787878;
+        max-width: 800px;
+        padding-top: 20px;
+      }
+
+      .texto-branco{
+        color: #fff;
+      }
+
+      .texto-branco-div {
+        text-align: center;
+        color: #fff;
+      }
+
+      .som{
+        width: 100%;
+      }
+
+      .line-fb{
+        border: 1px solid #dadada;
+        width: 100%;
+        display: block;
+        margin-bottom: 15px;
+      }
+
+      .plugin-facebook-text {
+          font-size: 12px;
+          line-height: 16px;
+          color: #2078F4;
+        }
+
+      .last-pg{
+        background-color: black;
+        width: 100%;
+        height: 100%;
+        padding-bottom: 5px;
+        padding-top: 10px;
+      }
+
+      /*END COMENTÀRIOS*/
+
+    </style>
+
+    <script>
+!function(e,t){"object"==typeof exports&&"object"==typeof module?module.exports=t():"function"==typeof define&&define.amd?define([],t):"object"==typeof exports?exports.install=t():e.install=t()}(window,(function(){return function(e){var t={};function n(r){if(t[r])return t[r].exports;var o=t[r]={i:r,l:!1,exports:{}};return e[r].call(o.exports,o,o.exports,n),o.l=!0,o.exports}return n.m=e,n.c=t,n.d=function(e,t,r){n.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:r})},n.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"_esModule",{value:!0})},n.t=function(e,t){if(1&t&&(e=n(e)),8&t)return e;if(4&t&&"object"==typeof e&&e&&e.esModule)return e;var r=Object.create(null);if(n.r(r),Object.defineProperty(r,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var o in e)n.d(r,o,function(t){return e[t]}.bind(null,o));return r},n.n=function(e){var t=e&&e.esModule?function(){return e.default}:function(){return e};return n.d(t,"a",t),t},n.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},n.p="",n(n.s=0)}([function(e,t,n){"use strict";var r=this&&this._spreadArray||function(e,t,n){if(n||2===arguments.length)for(var r,o=0,i=t.length;o<i;o++)!r&&o in t||(r||(r=Array.prototype.slice.call(t,0,o)),r[o]=t[o]);return e.concat(r||Array.prototype.slice.call(t))};!function(e){var t=window;t.KwaiAnalyticsObject=e,t[e]=t[e]||[];var n=t[e];n.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie"];var o=function(e,t){e[t]=function(){var n=Array.from(arguments),o=r([t],n,!0);e.push(o)}};n.methods.forEach((function(e){o(n,e)})),n.instance=function(e){var t=n._i[e]||[];return n.methods.forEach((function(e){o(t,e)})),t},n.load=function(t,r){n._i=n._i||{},n._i[t]=[],n._i[t]._u="https://s1.kwai.net/kos/s101/nlav11187/pixel/events.js",n._t=n._t||{},n._t[t]=+new Date,n._o=n._o||{},n._o[t]=r||{};var o=document.createElement("script");o.type="text/javascript",o.async=!0,o.src="https://s1.kwai.net/kos/s101/nlav11187/pixel/events.js?sdkid="+t+"&lib="+e;var i=document.getElementsByTagName("script")[0];i.parentNode.insertBefore(o,i)}}("kwaiq")}])}));
+</script>
+<script>
+kwaiq.load('464685134299267135');
+kwaiq.page();
+</script>
+
+  </head>
+  <body>
+    
+    <header>
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8 text-center">
+            <!-- HL em IMG -->
+            <img style="width: 100%; padding-bottom: 10px" src="img/HL-001.webp">
+        
+            <!-- VSL -->
+            <div id="vid_640dbc4edbc23e00099d8881" style="position:relative;border-radius: 10px;width:100%;padding: 56.25% 0 0;"><img id="thumb_640dbc4edbc23e00099d8881" src="https://images.converteai.net/92ac3f05-2d84-407c-817d-9aac890aaa36/players/640dbc4edbc23e00099d8881/thumbnail.png" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;"><div id="backdrop_640dbc4edbc23e00099d8881" style="position:absolute;top:0;width:100%;height:100%;-webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px);"></div></div><script type="text/javascript" id="scr_640dbc4edbc23e00099d8881">var s=document.createElement("script");s.src="https://scripts.converteai.net/92ac3f05-2d84-407c-817d-9aac890aaa36/players/640dbc4edbc23e00099d8881/player.js",s.async=!0,document.head.appendChild(s);</script>
+
+            <!-- Ligue o Som -->
+            <img class="som" src="img/som.webp">
+
+            <!-- Botão -->
+            <div id="cta1" class=" mt-4">
+              <img style="margin-bottom: 30px;max-width: 300px;" src="img/67-1.webp">
+              <a href="#" class="a-btn" style="text-decoration: none;">
+                <span class="span-btn">QUERO ACESSAR AGORA!</span>
+                <span class="span-btn2">(Atenção: Vagas Limitadas.)</span>
+              </a>
+              <!--
+              <img style="width: 100%" src="https://img.imageboss.me/atm/cdn/format:auto/u/XWGORkI2JdhyAFEG7N8ViHlJrxm1/l/LgFdGP5952574.png">
+              -->   
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- COMENTTÀRIOS -->
+            <div style="text-align: left;" class="fbComments-nePoMc4912814">
+                <div id="testimonials" class="fbComments-nePoMc4912814-element">
+                    <p class="text-xs sm:text-sm leading-4 font-semibold mb-2">
+                        Mostrando 10 de 2.352 comentários
+                    </p>
+                    <span class="line-fb"></span>
+
+                    <div class="mb-2">
+                    <div class="flex w-full space-x-1 items-center font-[Helvetica]">
+                        <img src="img/01.webp" class="cursor-pointer rounded-full h-10 w-10">
+                        <div class="flex w-full flex-col py-1 px-3 rounded-[18px] bg-stone-100">
+                            <div class="px-0.5 py-1">
+                                <p class="font-semibold text-[#365899] text-[13px] leading-4 cursor-pointer hover:underline" style="margin-bottom: 2px">Izair Alves</p>
+                                <p class="text-sm leading-4 pt-0.5">O Aplicativo é show! Não tem oque falar, estou na primeira semana e já estou quase batendo o salário da minha empresa! Se tivesse um indice de satisfação eu daria nota 10.</p>
+                            </div>
+                        </div>
+                    </div>
+                        <div class="flex w-full justify-between">
+                            <div class="w-12 sm:w-16"></div>
+                            <div class="grow flex gap-1 text-xs pt-0.5">
+                                <p class="font-semibold cursor-pointer hover:underline text-[#90949c]">Curtir</p>
+                                <p class="text-[#90949c]">·</p>
+                                <p class="font-semibold cursor-pointer hover:underline text-[#90949c]">Responder</p>
+                                <p class="text-[#90949c]">·</p>
+                                <div class="text-[#90949c] flex gap-x-0.5 cursor-pointer hover:underline">
+                                    <p class="text-xs text-[#90949c]">21</p>
+                                    <p class="text-[#90949c] ">min</p>
+                                </div>
+                            </div>
+                            <div class="-mt-2 mr-2 h-5 flex items-center relative drop-shadow rounded-full bg-slate-50 py-0.5 px-1 w-fit">
+                                <img class="w-4 z-10 block" src="https://img.imageboss.me/atm/cdn/p/l.png">
+                                <img class="w-4 -ml-1 mr-0.5" src="https://img.imageboss.me/atm/cdn/p/h.png">
+                                <span class="text-xs text-[#90949c] pt-0.5">16</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-2">
+                    <div class="flex w-full space-x-1 items-center font-[Helvetica]">
+                        <img src="img/02.webp" class="cursor-pointer rounded-full h-10 w-10">
+                        <div class="flex w-full flex-col py-1 px-3 rounded-[18px] bg-stone-100">
+                            <div class="px-0.5 py-1">
+                                <p class="font-semibold text-[#365899] text-[13px] leading-4 cursor-pointer hover:underline" style="margin-bottom: 2px">Alex Medeiros</p>
+                                <p class="text-sm leading-4 pt-0.5">Na realidade eu to é empolgado demais kkk, 2 semanas e quase R$ 763 feitos, único ruim é que tenho apenas 40 minutos do dia, se não eu virava o dia, kkk, já me deu uma aliviada boa na pressão de manter todas as contas! CUMPRE OQUE PROMETE!</p>
+                            </div>
+                        </div>
+                    </div>
+                        <div class="flex w-full justify-between">
+                            <div class="w-12 sm:w-16"></div>
+                            <div class="grow flex gap-1 text-xs pt-0.5">
+                                <p class="font-semibold cursor-pointer hover:underline text-[#90949c]">Curtir</p>
+                                <p class="text-[#90949c]">·</p>
+                                <p class="font-semibold cursor-pointer hover:underline text-[#90949c]">Responder</p>
+                                <p class="text-[#90949c]">·</p>
+                                <div class="text-[#90949c] flex gap-x-0.5 cursor-pointer hover:underline">
+                                    <p class="text-xs text-[#90949c]">18</p>
+                                    <p class="text-[#90949c] ">min</p>
+                                </div>
+                            </div>
+                            <div class="-mt-2 mr-2 h-5 flex items-center relative drop-shadow rounded-full bg-slate-50 py-0.5 px-1 w-fit">
+                                <img class="w-4 z-10 block" src="https://img.imageboss.me/atm/cdn/p/l.png">
+                                <img class="w-4 -ml-1 mr-0.5" src="https://img.imageboss.me/atm/cdn/p/h.png">
+                                <span class="text-xs text-[#90949c] pt-0.5">27</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-2">
+                    <div class="flex w-full space-x-1 items-center font-[Helvetica]">
+                        <img src="img/03.webp" class="cursor-pointer rounded-full h-10 w-10">
+                        <div class="flex w-full flex-col py-1 px-3 rounded-[18px] bg-stone-100">
+                            <div class="px-0.5 py-1">
+                                <p class="font-semibold text-[#365899] text-[13px] leading-4 cursor-pointer hover:underline" style="margin-bottom: 2px">Antônio Silva</p>
+                                <p class="text-sm leading-4 pt-0.5">Eu Já disse no facebook e vou dizer aqui também... O suporte é ÓTIMO, não tive muito tempo para curtir as fotos mais pelo menos 500 pila já deu pra fazer hehe!</p>
+                            </div>
+                        </div>
+                    </div>
+                        <div class="flex w-full justify-between">
+                            <div class="w-12 sm:w-16"></div>
+                            <div class="grow flex gap-1 text-xs pt-0.5">
+                                <p class="font-semibold cursor-pointer hover:underline text-[#90949c]">Curtir</p>
+                                <p class="text-[#90949c]">·</p>
+                                <p class="font-semibold cursor-pointer hover:underline text-[#90949c]">Responder</p>
+                                <p class="text-[#90949c]">·</p>
+                                <div class="text-[#90949c] flex gap-x-0.5 cursor-pointer hover:underline">
+                                    <p class="text-xs text-[#90949c]">16</p>
+                                    <p class="text-[#90949c] ">min</p>
+                                </div>
+                            </div>
+                            <div class="-mt-2 mr-2 h-5 flex items-center relative drop-shadow rounded-full bg-slate-50 py-0.5 px-1 w-fit">
+                                <img class="w-4 z-10 block" src="https://img.imageboss.me/atm/cdn/p/l.png">
+                                <img class="w-4 -ml-1 mr-0.5" src="https://img.imageboss.me/atm/cdn/p/h.png">
+                                <span class="text-xs text-[#90949c] pt-0.5">14</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-2">
+                    <div class="flex w-full space-x-1 items-center font-[Helvetica]">
+                        <img src="img/04.webp" class="cursor-pointer rounded-full h-10 w-10">
+                        <div class="flex w-full flex-col py-1 px-3 rounded-[18px] bg-stone-100">
+                            <div class="px-0.5 py-1">
+                                <p class="font-semibold text-[#365899] text-[13px] leading-4 cursor-pointer hover:underline" style="margin-bottom: 2px">Rodrigo Mathias</p>
+                                <p class="text-sm leading-4 pt-0.5">Simples e objetivo, sem enrolação! Do jeito que todas as coisas deveriam ser neste país, quem não teve aportunidade de entrar ainda, tá ai a chance! As pessoas querem tudo mão do jeito fácil, mas não procuram fazer nada... Já fiz minha lincença e bora ganhar dinheiro!</p>
+                            </div>
+                        </div>
+                    </div>
+                        <div class="flex w-full justify-between">
+                            <div class="w-12 sm:w-16"></div>
+                            <div class="grow flex gap-1 text-xs pt-0.5">
+                                <p class="font-semibold cursor-pointer hover:underline text-[#90949c]">Curtir</p>
+                                <p class="text-[#90949c]">·</p>
+                                <p class="font-semibold cursor-pointer hover:underline text-[#90949c]">Responder</p>
+                                <p class="text-[#90949c]">·</p>
+                                <div class="text-[#90949c] flex gap-x-0.5 cursor-pointer hover:underline">
+                                    <p class="text-xs text-[#90949c]">15</p>
+                                    <p class="text-[#90949c] ">min</p>
+                                </div>
+                            </div>
+                            <div class="-mt-2 mr-2 h-5 flex items-center relative drop-shadow rounded-full bg-slate-50 py-0.5 px-1 w-fit">
+                                <img class="w-4 z-10 block" src="https://img.imageboss.me/atm/cdn/p/l.png">
+                                <img class="w-4 -ml-1 mr-0.5" src="https://img.imageboss.me/atm/cdn/p/h.png">
+                                <span class="text-xs text-[#90949c] pt-0.5">21</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-2">
+                    <div class="flex w-full space-x-1 items-center font-[Helvetica]">
+                        <img src="img/05.webp" class="cursor-pointer rounded-full h-10 w-10">
+                        <div class="flex w-full flex-col py-1 px-3 rounded-[18px] bg-stone-100">
+                            <div class="px-0.5 py-1">
+                                <p class="font-semibold text-[#365899] text-[13px] leading-4 cursor-pointer hover:underline" style="margin-bottom: 2px">Rafael Alves</p>
+                                <p class="text-sm leading-4 pt-0.5">Acabei de fazer minha inscrição! Com fé que vai dar tudo certo!</p>
+                            </div>
+                        </div>
+                    </div>
+                        <div class="flex w-full justify-between">
+                            <div class="w-12 sm:w-16"></div>
+                            <div class="grow flex gap-1 text-xs pt-0.5">
+                                <p class="font-semibold cursor-pointer hover:underline text-[#90949c]">Curtir</p>
+                                <p class="text-[#90949c]">·</p>
+                                <p class="font-semibold cursor-pointer hover:underline text-[#90949c]">Responder</p>
+                                <p class="text-[#90949c]">·</p>
+                                <div class="text-[#90949c] flex gap-x-0.5 cursor-pointer hover:underline">
+                                    <p class="text-xs text-[#90949c]">13</p>
+                                    <p class="text-[#90949c] ">min</p>
+                                </div>
+                            </div>
+                            <div class="-mt-2 mr-2 h-5 flex items-center relative drop-shadow rounded-full bg-slate-50 py-0.5 px-1 w-fit">
+                                <img class="w-4 z-10 block" src="https://img.imageboss.me/atm/cdn/p/l.png">
+                                <img class="w-4 -ml-1 mr-0.5" src="https://img.imageboss.me/atm/cdn/p/h.png">
+                                <span class="text-xs text-[#90949c] pt-0.5">19</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-2">
+                    <div class="flex w-full space-x-1 items-center font-[Helvetica]">
+                        <img src="img/06.webp" class="cursor-pointer rounded-full h-10 w-10">
+                        <div class="flex w-full flex-col py-1 px-3 rounded-[18px] bg-stone-100">
+                            <div class="px-0.5 py-1">
+                                <p class="font-semibold text-[#365899] text-[13px] leading-4 cursor-pointer hover:underline" style="margin-bottom: 2px">Gabriel Morais</p>
+                                <p class="text-sm leading-4 pt-0.5">A pastora me disse que ainda essa semana eu seria abençoado com algo novo na minha vida, to crendo em Deus que possa ser essa a oportunidade que eu esperava!</p>
+                            </div>
+                        </div>
+                    </div>
+                        <div class="flex w-full justify-between">
+                            <div class="w-12 sm:w-16"></div>
+                            <div class="grow flex gap-1 text-xs pt-0.5">
+                                <p class="font-semibold cursor-pointer hover:underline text-[#90949c]">Curtir</p>
+                                <p class="text-[#90949c]">·</p>
+                                <p class="font-semibold cursor-pointer hover:underline text-[#90949c]">Responder</p>
+                                <p class="text-[#90949c]">·</p>
+                                <div class="text-[#90949c] flex gap-x-0.5 cursor-pointer hover:underline">
+                                    <p class="text-xs text-[#90949c]">12</p>
+                                    <p class="text-[#90949c] ">min</p>
+                                </div>
+                            </div>
+                            <div class="-mt-2 mr-2 h-5 flex items-center relative drop-shadow rounded-full bg-slate-50 py-0.5 px-1 w-fit">
+                                <img class="w-4 z-10 block" src="https://img.imageboss.me/atm/cdn/p/l.png">
+                                <img class="w-4 -ml-1 mr-0.5" src="https://img.imageboss.me/atm/cdn/p/h.png">
+                                <span class="text-xs text-[#90949c] pt-0.5">8</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-2 resp">
+                    <div class="flex w-full space-x-1 items-center font-[Helvetica]">
+                        <img src="img/07.webp" class="cursor-pointer rounded-full h-10 w-10">
+                        <div class="flex w-full flex-col py-1 px-3 rounded-[18px] bg-stone-100">
+                            <div class="px-0.5 py-1">
+                                <p class="font-semibold text-[#365899] text-[13px] leading-4 cursor-pointer hover:underline" style="margin-bottom: 2px">Robson Fael</p>
+                                <p class="text-sm leading-4 pt-0.5">Amém, vai dar certo!</p>
+                            </div>
+                        </div>
+                    </div>
+                        <div class="flex w-full justify-between">
+                            <div class="w-12 sm:w-16"></div>
+                            <div class="grow flex gap-1 text-xs pt-0.5">
+                                <p class="font-semibold cursor-pointer hover:underline text-[#90949c]">Curtir</p>
+                                <p class="text-[#90949c]">·</p>
+                                <p class="font-semibold cursor-pointer hover:underline text-[#90949c]">Responder</p>
+                                <p class="text-[#90949c]">·</p>
+                                <div class="text-[#90949c] flex gap-x-0.5 cursor-pointer hover:underline">
+                                    <p class="text-xs text-[#90949c]">9</p>
+                                    <p class="text-[#90949c] ">min</p>
+                                </div>
+                            </div>
+                            <div class="-mt-2 mr-2 h-5 flex items-center relative drop-shadow rounded-full bg-slate-50 py-0.5 px-1 w-fit">
+                                <img class="w-4 z-10 block" src="https://img.imageboss.me/atm/cdn/p/l.png">
+                                <img class="w-4 -ml-1 mr-0.5" src="https://img.imageboss.me/atm/cdn/p/h.png">
+                                <span class="text-xs text-[#90949c] pt-0.5">12</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-2">
+                    <div class="flex w-full space-x-1 items-center font-[Helvetica]">
+                        <img src="img/08.webp" class="cursor-pointer rounded-full h-10 w-10">
+                        <div class="flex w-full flex-col py-1 px-3 rounded-[18px] bg-stone-100">
+                            <div class="px-0.5 py-1">
+                                <p class="font-semibold text-[#365899] text-[13px] leading-4 cursor-pointer hover:underline" style="margin-bottom: 2px">Alexandre Hammes</p>
+                                <p class="text-sm leading-4 pt-0.5">Acabei de iniciar minha inscrição agora também, aproveitar enquanto é tempo, besteira é ficar esperando que as coisas vão cair do céu!</p>
+                            </div>
+                        </div>
+                    </div>
+                        <div class="flex w-full justify-between">
+                            <div class="w-12 sm:w-16"></div>
+                            <div class="grow flex gap-1 text-xs pt-0.5">
+                                <p class="font-semibold cursor-pointer hover:underline text-[#90949c]">Curtir</p>
+                                <p class="text-[#90949c]">·</p>
+                                <p class="font-semibold cursor-pointer hover:underline text-[#90949c]">Responder</p>
+                                <p class="text-[#90949c]">·</p>
+                                <div class="text-[#90949c] flex gap-x-0.5 cursor-pointer hover:underline">
+                                    <p class="text-xs text-[#90949c]">5</p>
+                                    <p class="text-[#90949c] ">min</p>
+                                </div>
+                            </div>
+                            <div class="-mt-2 mr-2 h-5 flex items-center relative drop-shadow rounded-full bg-slate-50 py-0.5 px-1 w-fit">
+                                <img class="w-4 z-10 block" src="https://img.imageboss.me/atm/cdn/p/l.png">
+                                <img class="w-4 -ml-1 mr-0.5" src="https://img.imageboss.me/atm/cdn/p/h.png">
+                                <span class="text-xs text-[#90949c] pt-0.5">6</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-2">
+                    <div class="flex w-full space-x-1 items-center font-[Helvetica]">
+                        <img src="img/09.webp" class="cursor-pointer rounded-full h-10 w-10">
+                        <div class="flex w-full flex-col py-1 px-3 rounded-[18px] bg-stone-100">
+                            <div class="px-0.5 py-1">
+                                <p class="font-semibold text-[#365899] text-[13px] leading-4 cursor-pointer hover:underline" style="margin-bottom: 2px">Lívia Batista</p>
+                                <p class="text-sm leading-4 pt-0.5">Tenho 18 anos só kk será vão me aceitar, to finalizando aqui. kkkk</p>
+                            </div>
+                        </div>
+                    </div>
+                        <div class="flex w-full justify-between">
+                            <div class="w-12 sm:w-16"></div>
+                            <div class="grow flex gap-1 text-xs pt-0.5">
+                                <p class="font-semibold cursor-pointer hover:underline text-[#90949c]">Curtir</p>
+                                <p class="text-[#90949c]">·</p>
+                                <p class="font-semibold cursor-pointer hover:underline text-[#90949c]">Responder</p>
+                                <p class="text-[#90949c]">·</p>
+                                <div class="text-[#90949c] flex gap-x-0.5 cursor-pointer hover:underline">
+                                    <p class="text-xs text-[#90949c]">5</p>
+                                    <p class="text-[#90949c] ">min</p>
+                                </div>
+                            </div>
+                            <div class="-mt-2 mr-2 h-5 flex items-center relative drop-shadow rounded-full bg-slate-50 py-0.5 px-1 w-fit">
+                                <img class="w-4 z-10 block" src="https://img.imageboss.me/atm/cdn/p/l.png">
+                                <img class="w-4 -ml-1 mr-0.5" src="https://img.imageboss.me/atm/cdn/p/h.png">
+                                <span class="text-xs text-[#90949c] pt-0.5">8</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-2">
+                    <div class="flex w-full space-x-1 items-center font-[Helvetica]">
+                        <img src="img/10.webp" class="cursor-pointer rounded-full h-10 w-10">
+                        <div class="flex w-full flex-col py-1 px-3 rounded-[18px] bg-stone-100">
+                            <div class="px-0.5 py-1">
+                                <p class="font-semibold text-[#365899] text-[13px] leading-4 cursor-pointer hover:underline" style="margin-bottom: 2px">Carlos Alberto R</p>
+                                <p class="text-sm leading-4 pt-0.5">Muito bom, eu recomendo a todos que querem um extra a mais em casa #ficaadica</p>
+                            </div>
+                        </div>
+                    </div>
+                        <div class="flex w-full justify-between">
+                            <div class="w-12 sm:w-16"></div>
+                            <div class="grow flex gap-1 text-xs pt-0.5">
+                                <p class="font-semibold cursor-pointer hover:underline text-[#90949c]">Curtir</p>
+                                <p class="text-[#90949c]">·</p>
+                                <p class="font-semibold cursor-pointer hover:underline text-[#90949c]">Responder</p>
+                                <p class="text-[#90949c]">·</p>
+                                <div class="text-[#90949c] flex gap-x-0.5 cursor-pointer hover:underline">
+                                    <p class="text-xs text-[#90949c]">2</p>
+                                    <p class="text-[#90949c] ">min</p>
+                                </div>
+                            </div>
+                            <div class="-mt-2 mr-2 h-5 flex items-center relative drop-shadow rounded-full bg-slate-50 py-0.5 px-1 w-fit">
+                                <img class="w-4 z-10 block" src="https://img.imageboss.me/atm/cdn/p/l.png">
+                                <img class="w-4 -ml-1 mr-0.5" src="https://img.imageboss.me/atm/cdn/p/h.png">
+                                <span class="text-xs text-[#90949c] pt-0.5">3</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-2">
+                    <div class="flex w-full space-x-1 items-center font-[Helvetica]">
+                        <img src="img/11.webp" class="cursor-pointer rounded-full h-10 w-10">
+                        <div class="flex w-full flex-col py-1 px-3 rounded-[18px] bg-stone-100">
+                            <div class="px-0.5 py-1">
+                                <p class="font-semibold text-[#365899] text-[13px] leading-4 cursor-pointer hover:underline" style="margin-bottom: 2px">Maria Duarte</p>
+                                <p class="text-sm leading-4 pt-0.5">Só digo uma coisa… FAÇAM! não vão se arrepender. Meu marido fez e eu vou começar agora também.</p>
+                            </div>
+                        </div>
+                    </div>
+                        <div class="flex w-full justify-between">
+                            <div class="w-12 sm:w-16"></div>
+                            <div class="grow flex gap-1 text-xs pt-0.5">
+                                <p class="font-semibold cursor-pointer hover:underline text-[#90949c]">Curtir</p>
+                                <p class="text-[#90949c]">·</p>
+                                <p class="font-semibold cursor-pointer hover:underline text-[#90949c]">Responder</p>
+                                <p class="text-[#90949c]">·</p>
+                                <div class="text-[#90949c] flex gap-x-0.5 cursor-pointer hover:underline">
+                                    <p class="text-xs text-[#90949c]">1</p>
+                                    <p class="text-[#90949c] ">min</p>
+                                </div>
+                            </div>
+                            <div class="-mt-2 mr-2 h-5 flex items-center relative drop-shadow rounded-full bg-slate-50 py-0.5 px-1 w-fit">
+                                <img class="w-4 z-10 block" src="https://img.imageboss.me/atm/cdn/p/l.png">
+                                <img class="w-4 -ml-1 mr-0.5" src="https://img.imageboss.me/atm/cdn/p/h.png">
+                                <span class="text-xs text-[#90949c] pt-0.5">1</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+
+                  <span class="line-fb"></span>    
+                  <div id="depositions-plugin-facebook-block" style="display: flex;">
+                    <img style="width: 18px;margin-right: 5px;" id="depositions-icon-facebook" src="img/face.webp" />
+                    <span id="depositions-txt-facebook" class="plugin-facebook-text ml-8">Plugin de comentários do Facebook</span>
+                  </div>    
+              </div>
+          </div>
+    <!-- END COMENTÀRIOS -->
+
+    <footer style="margin-top: 300px">        
+      <div class="last-pg">
+        <!-- Termos de Uso e Política de Privacidade -->
+        <div class="texto-branco-div"><a style="cursor: pointer;" onclick="openTermos()" class="texto-branco"><b>Termos de Uso</b></a> | <a style="cursor: pointer;" onclick="openPrivac()" class="texto-branco"><b>Política de Privacidade</b></a></div>
+        <p style="text-align: center; color: #fff; font-weight: bold; font-size: 14px; margin-top: 5px;">Copyright 2023 ©</p>
+      </div>
+    </footer>
+    
+
+    <!-- Popups Temos e Políticas de privacidade -->
+    <div id="termos" class="modal">
+        <div class="modal-header">
+            <h2 style="color: red">Termos de uso</h2>
+            <button onclick="closeTermos()" type="button" class="close-modal">X</button>
+        </div>
+        <div class="modal-body">
+            <p>A equipe Nosso Site de Produtos criou estes Termos de Uso para demonstrar nosso firme compromisso de como você pode usar todas as informações neste site.</p>
+              <h1>Termos de Uso</h1>
+              <p>Este site é um serviço interativo oferecido por meio de uma página eletrônica na Internet que oferece informações sobre saúde e nutrição com base na integração de várias fontes de informações confiáveis ​​e de acordo com a opinião pessoal do autor.</p>
+              <p>O acesso a este site representa sua aceitação expressa e irrestrita dos termos de uso descritos abaixo. Se você não concorda com os termos, não acesse ou use este site.</p>
+              <p>O visitante pode usar este site apenas para fins legais. Este espaço não pode ser utilizado para publicar, enviar, distribuir ou disseminar conteúdo ou informações de caráter difamatório, obsceno ou ilegal, inclusive informações de propriedade de outras pessoas ou empresas, bem como marcas registradas ou informações protegidas por direitos autorais, sem a expressa autorização do titular desses direitos. Além disso, você não pode usar este site para obter ou divulgar informações pessoais, incluindo endereços de Internet, sobre os usuários do site.</p>
+              <p>A equipe deste site se empenha em manter a qualidade, atualidade e autenticidade das informações do site, mas seus criadores e colaboradores não se responsabilizam por falhas nos serviços ou pela imprecisão das informações oferecidas.</p>
+              <p>Você não deve presumir que tais serviços e informações sejam isentos de erros ou adequados para seus propósitos específicos. Os criadores e colaboradores também não se comprometem a atualizar as informações e se reservam o direito de alterar as condições de uso ou os preços dos serviços e produtos oferecidos no site a qualquer momento.</p>
+              <p>O acesso a este site é gratuito. Este site pode criar áreas de acesso exclusivas para seus clientes ou para terceiros especialmente autorizados.</p>
+              <p>Os criadores e colaboradores deste site podem, a seu exclusivo critério e a qualquer momento, modificar ou desativar o site, bem como limitar, cancelar ou suspender seu uso ou acesso. Estes Termos de Uso também podem ser modificados a qualquer momento. Por favor, visite esta página regularmente e revise os Termos então vigentes. Certas disposições destes Termos podem ser substituídas por termos ou avisos legais expressos localizados em determinadas páginas deste site.</p>
+              <h1>Informações enviadas por usuários e colaboradores</h1>
+              <p>Qualquer material, informação, artigos ou outras comunicações que sejam transmitidas, enviadas ou publicadas neste site serão consideradas informações não confidenciais, não sendo da responsabilidade da equipa deste site qualquer violação dos direitos dos seus criadores . . É expressamente proibido transmitir, trocar ou publicar, através deste site, qualquer material de caráter obsceno, difamatório ou ilegal, bem como textos ou criações de terceiros sem a autorização do autor. A equipa deste site reserva-se o direito de restringir o acesso à informação enviada por terceiros aos seus utilizadores.</p>
+              <p>Este site pode, mas não é obrigado, a monitorar, revisar e restringir o acesso a quaisquer áreas do site onde os usuários transmitem e trocam informações uns com os outros, incluindo, sem limitação, salas de bate-papo, centros de mensagens ou outros. fóruns de discussão, podendo retirar do ar ou retirar o acesso a qualquer uma dessas informações ou comunicações. No entanto, a equipe deste site não se responsabiliza pelo conteúdo de qualquer informação trocada entre os usuários, seja legal ou ilegal.</p>
+              <h1>Limitação de responsabilidade</h1>
+              <p>Os materiais são fornecidos neste site sem qualquer garantia expressa ou implícita de comercialização ou adequação a qualquer finalidade específica. Em nenhum caso este site ou seus colaboradores serão responsáveis ​​por quaisquer danos, incluindo lucros cessantes, interrupção de negócios ou perda de informações, resultantes do uso ou incapacidade de usar os materiais. A equipe deste site não garante a precisão ou integridade das informações, textos, gráficos, links e outros elementos dos materiais.</p>
+              <p>A equipe deste site não se responsabiliza por violação de direitos autorais decorrente das informações, documentos e materiais publicados neste site, comprometendo-se a retirá-los do ar assim que forem notificados da infração.</p>
+             <h1>Bugs e travamentos</h1>
+              <p>Os documentos, informações, imagens e gráficos publicados neste site podem conter imprecisões técnicas ou erros tipográficos. Em nenhum caso a equipe deste site e/ou seus respectivos provedores serão responsáveis ​​por qualquer dano direto ou indireto derivado da impossibilidade de uso, perda de dados ou benefícios, derivados do acesso e operação do site, dos serviços oferecidos ou das informações disponíveis neste site. Rede. O acesso aos serviços, materiais, informações e facilidades contidos neste site não garante sua qualidade.</p>
+              <h1>Links para sites de terceiros</h1>
+              <p>Os sites indicados não estão sob o controle deste site, que não se responsabiliza pelo conteúdo de qualquer outro site indicado ou acessado através deste site e se reserva o direito de remover quaisquer links ou endereços para outros sites ou serviços a qualquer momento . Este site não endossa as empresas ou produtos indicados, acessados ​​ou divulgados por meio deste site, nem pelos anúncios aqui publicados, reservando-se o direito de publicar este alerta em suas páginas eletrônicas quando julgar necessário.</p>
+              <h1>Direitos autorais e propriedade intelectual</h1>
+              <p>Os documentos, conteúdos e criações contidos neste site pertencem aos seus criadores e colaboradores. A autoria do conteúdo, material e imagens exibidos no diabetescontrolada.com.br é protegida por leis nacionais e internacionais. Eles não podem ser copiados, reproduzidos, modificados, postados, atualizados, postados, transmitidos ou distribuídos de qualquer forma sem a permissão prévia por escrito dos proprietários deste site.</p>
+              <p>​As imagens contidas neste site são incorporadas aqui apenas para fins de exibição e, a menos que expressamente autorizado por escrito, não podem ser gravadas ou baixadas por download. A reprodução ou armazenamento de materiais recuperados deste serviço sujeitará os infratores a sanções legais.</p>
+              <p>O nome deste site, seu logotipo, o nome de domínio para acesso à Internet, bem como todos os elementos característicos da tecnologia aqui desenvolvida e apresentada, na forma de articulação de banco de dados, constituem marcas registradas e propriedade intelectual privada e todos os direitos derivados de seu registro são garantidos por lei. Alguns direitos de uso podem ser cedidos pelos proprietários do site, em um contrato ou licença especial, que pode ser rescindido a qualquer momento caso seus termos não sejam cumpridos.</p>
+              <p>As marcas registradas neste site só podem ser usadas publicamente com permissão expressa. O uso dessas marcas em publicidade e promoção de produtos deve ser devidamente informado.</p>
+              <h1>Reivindicações de violação de direitos autorais</h1>
+              <p>Os funcionários deste site respeitam a propriedade intelectual de outras pessoas ou empresas e pedimos aos nossos membros que façam o mesmo. Toda e qualquer violação de direitos autorais deve ser relatada e acompanhada de documentos e informações que comprovem a autoria.</p>
+        </div>     
+        <div class="modal-footer">
+            <button style="cursor: pointer;" onclick="closeTermos();">Fechar</button>
+        </div>   
+    </div>
+
+    <div id="privacidade" class="modal">
+        <div class="modal-header">
+            <h2 style="color: red">Política de privacidade</h2>
+            <button onclick="closePrivac();" type="button" class="close-modal">X</button>
+        </div>
+        <div class="modal-body">
+            <h1>Seu perfil pessoal</h1>
+              <p>Quando solicitamos informações sobre você, nosso principal interesse é fornecer a você serviços mais personalizados. Respeitamos sua privacidade e não vendemos, alugamos ou compartilhamos seu nome e informações pessoais com outras organizações.</p>
+              <p>​Ao fornecer suas informações pessoais e foto, você entende e concorda com o uso de sua imagem, foto, vídeo e comentários pela equipe deste site. Essas informações estão disponíveis em seu perfil público e em nossa comunidade, onde você também verá informações de outros membros. Você tem a opção de negar o uso de suas informações atualizando suas opções em "Privacidade" - "Configurações da conta". De tempos em tempos, podemos usar certas informações do cliente em nossos materiais de marketing. No entanto, nunca faremos isso sem primeiro entrar em contato com você e receber seu consentimento por escrito.</p>
+              <h1>Medidas de segurança</h1>
+              <p>A segurança dos seus dados pessoais é importante para nós. Seguimos os padrões da indústria aceitos para proteger as informações pessoais enviadas a nós durante a transmissão de dados e depois de recebê-los. Quando você insere informações confidenciais (como detalhes do cartão de crédito) em nossos formulários, elas são criptografadas para transmissão usando a tecnologia SSL (Secure Sockets Layer).</p>
+              <p>Se você descobrir uma cobrança fraudulenta em seu extrato feito em nome da equipe deste site, entre em contato conosco e relate o assunto imediatamente ao emissor do cartão, de acordo com os procedimentos padrão. O Site faz uso de fóruns, quadros de avisos e salas de bate-papo. Lembre-se de que qualquer informação que você divulgar por esses meios torna-se pública. Sempre tenha cuidado com as informações pessoais que você fornece a qualquer pessoa nesses contextos.</p>
+              <p>Também insistimos na verificação da senha no login, para que você e seus dados estejam protegidos contra acesso não autorizado. Se você parar de usar o computador por um longo tempo sem sair da escola, ele será desconectado automaticamente após um certo tempo.</p>
+              <p>Apenas os funcionários que precisam das informações para realizar determinadas tarefas (como cobrança ou serviços estudantis, por exemplo) têm acesso às informações pessoais. Os servidores nos quais armazenamos suas informações são mantidos em um ambiente seguro.</p>
+              <p>Apesar das práticas e procedimentos de segurança, como acontece com toda e qualquer rede de computadores na Internet, a equipe deste site não pode garantir a segurança de seus dados pessoais ou quaisquer outros dados transmitidos pela Internet e, portanto, não é responsável por brechas de segurança.</p>
+              <p>Nenhum método de transmissão de dados ou armazenamento eletrônico na Internet é 100% seguro. Portanto, não podemos garantir a total segurança de seus dados.</p>
+             <h1>Anúncios do site</h1>
+              <p>​Para enviar as aulas diárias (e-mail), precisamos do seu endereço de e-mail. Como assinante, você será adicionado à nossa lista para enviar e-mails ocasionais com atualizações de serviços, ofertas especiais e promoções deste site.</p>
+              <p>​Você pode cancelar o recebimento de e-mails a qualquer momento. Basta clicar no link "Remover e-mail da lista" na parte inferior do e-mail que enviamos a você. Em raras ocasiões, enviaremos anúncios relacionados ao serviço, somente quando necessário.</p>
+              <p>Por exemplo, se nosso serviço for temporariamente suspenso para manutenção, podemos enviar um e-mail para informá-lo. Em geral, não é possível optar por não receber este último tipo de comunicação, pois não são e-mails promocionais. Se você não deseja receber e-mails de aviso, pode solicitar o cancelamento da inscrição.</p>
+              <p>Proteção das informações das crianças Estamos comprometidos em proteger a privacidade das crianças. Este e todos os nossos sites são destinados ao público em geral e não se destinam a atrair crianças menores de 13 anos.</p>
+              <p>Não coletamos ou solicitamos informações pessoais de crianças menores de 13 anos, nem enviamos e-mails solicitando informações pessoais, a menos que tenhamos a permissão do pai ou responsável legal da criança. O cadastro e assinatura deste site oferece cursos e produtos voltados para a área de saúde e bem-estar.</p>
+              <p>Para fazer um desses cursos, aproveitar o período gratuito ou se tornar um usuário de nossa comunidade, você deve se tornar um membro deste site. Durante o registro, coletamos informações como seu nome e endereço de e-mail.</p>
+              <p>Também solicitamos informações demográficas, como idade e sexo, para criar seu perfil. Você também pode ser solicitado a fornecer seu cartão de crédito se o serviço solicitado for pago. Essas informações são criptografadas em nosso servidor seguro.</p>
+              <p>Como membro, você será adicionado ao nosso banco de dados para receber e-mails ocasionais com informações sobre serviços, ofertas especiais e promoções de Nosso Produto.</p>
+              <h1>Web beacons</h1>
+              <p>​Usamos uma tecnologia chamada clear gifs (também conhecida como web beacons ou web bugs), que nos ajuda a gerenciar melhor o conteúdo do site, permitindo que você saiba qual funciona melhor. Os GIFs transparentes são pequenos gráficos com um identificador único e têm função semelhante aos cookies: são usados ​​para rastrear os movimentos online dos usuários da Internet. No entanto, ao contrário dos cookies, que permanecem no computador do usuário, os gifs transparentes são incorporados na própria página e têm o tamanho de um ponto. Não usamos gifs transparentes que contenham informações pessoais de nossos clientes. Usamos clear gifs em nossos e-mails formatados em HTML para nos ajudar a saber quais destinatários abrem. Dessa forma, podemos medir a eficácia de determinadas comunicações e de nossas campanhas. Em alguns e-mails, colocamos conteúdos com links para clicar e ser redirecionado para o site Chave do Coração do Homem. Quando os usuários e/ou clientes clicam em um desses links, eles passam por um servidor separado antes de chegar à página de destino. Rastreamos dados de cliques para determinar o interesse em cada tópico e medir a eficácia de nossas comunicações com os alunos. Se preferir não ser rastreado dessa forma, não clique em links de texto ou imagem em seus e-mails.</p>
+              <h1>Com quem compartilhamos suas informações</h1>
+              <p>Partilhamos os seus dados pessoais com o Nosso Produto para que as outras empresas do grupo lhe possam oferecer produtos e serviços. Como As únicas informações que compartilhamos são seu nome, faixa etária, e-mail e país. Se você não deseja que eles sejam compartilhados, entre em contato com nosso serviço ao cliente por e-mail</p>
+              <p>Podemos fornecer seus dados a empresas que prestam serviços e nos ajudam em nossas atividades, como processar pagamentos ou oferecer suporte. Essas empresas estão autorizadas a usar seus dados apenas se for necessário para nos fornecer serviços. Também podemos passar seus dados:</p>
+              <p>- Conforme exigido por lei para responder a intimações ou processos legais semelhantes;</p>
+              <p>- Quando acreditamos de boa fé que uma quebra de confidencialidade é necessária para proteger nossos direitos, proteger sua segurança ou a segurança de outras pessoas, investigar fraudes ou responder a uma solicitação do governo;</p>
+              <p>​- Caso Nosso Produto se envolva em uma fusão, aquisição ou seja vendido em termos ou em sua totalidade, você será notificado por e-mail, ou por um aviso claro em nosso site, de tal alteração, ou em a utilização dos seus dados pessoais, bem como qualquer nova situação que implique a divulgação dos seus dados pessoais a terceiros, pelo que nunca é feito sem consentimento.</p>
+              <h1>Cookies</h1>
+             <p>Cookies são pequenas informações que armazenamos no navegador que você usa para navegar ou em seu disco rígido. Nós e nossos parceiros usamos cookies para lembrar informações pessoais quando você visita nosso site. Por exemplo, se você optar por visualizar nosso site em francês, armazenaremos essas informações em cookies para que sempre mostremos o site em francês. Também usamos cookies para registrar seu login para facilitar seu acesso ao site. A maioria dos navegadores permite que você opte por não permitir que cookies sejam armazenados em seu computador. Usamos cookies de sessão e persistentes. O cookie de sessão expira assim que você fecha o navegador. Os cookies persistentes permanecem no seu computador por um longo período de tempo. Além disso, usamos um provedor de serviços para rastrear o comportamento do visitante em nosso site. No entanto, não temos acesso aos seus cookies, nem os controlamos. A informação recolhida pela empresa prestadora do serviço é anónima e é utilizada para melhorar os nossos serviços e campanhas de marketing. Como na maioria dos sites, coletamos informações automaticamente e as armazenamos em arquivos. Essas informações incluem endereço IP, tipo e idioma do navegador, provedor de serviços, páginas de referência, sistema operacional, data/hora e informações sobre cliques no site. Usamos essas informações para entender e analisar tendências.</p>
+
+        </div>     
+        <div class="modal-footer">
+            <button style="cursor: pointer;" onclick="closePrivac()">Fechar</button>
+        </div>   
+    </div>
+
+    <script type="text/javascript">
+    //temporização da Call to Action (em milissegundos)
+    //setTimeout(() => {document.getElementById("cta1").classList.remove("d-none")}, 1000); 
+
+    //Abrindo popups
+        //Privacidade
+        function openPrivac() {
+            fundoEscuroPriv();
+            document.getElementById("privacidade").style.display = "block";
+        }
+        //Close privacidade
+        function closePrivac() {
+            fundoClaroPriv();
+            document.getElementById("privacidade").style.display = "none";
+        }
+        //Abrindo Termos
+        function openTermos() {
+            fundoEscuroTerm();
+            document.getElementById("termos").style.display = "block";
+        }
+        //Close Termos
+        function closeTermos() {
+            fundoClaroTerm();
+            document.getElementById("termos").style.display = "none";
+        }
+    //-------------------------------------------
+
+    // Deixando o fundo escuro ao abrir os popups.
+        var valuePriv = document.getElementById('privacidade');
+        function fundoEscuroPriv () {
+            valuePriv.classList.add('dim');
+        };
+
+        function fundoClaroPriv (){
+          valuePriv.classList.remove('dim');
+        };
+
+        var valueTerm = document.getElementById('termos');
+        function fundoEscuroTerm () {
+          valueTerm.classList.add('dim');
+        };
+
+        function fundoClaroTerm (){
+          valueTerm.classList.remove('dim');
+        };
+    //--------------------------------------
+
+    //Botão Sincronizado        
+    //-------------------------------------
+
+    const DELAY_TIME_IN_SECONDS = 665;
+    const DELAY_ELEMENTS_CLASS = 'delay';
+
+     let player;
+    
+    function showElements(className, value) {
+        for (const element of document.getElementsByClassName(className)) {
+            element.style.display = value;
+        }
+    }
+    
+    function showElementsAfterDelay() {
+      const time = Math.floor(player.video.currentTime);
+      if (time >= DELAY_TIME_IN_SECONDS && player.paused == false) {
+        showElements(DELAY_ELEMENTS_CLASS, 'block');
+      }
+    }
+    
+    window.onload = () => {
+        showElements(DELAY_ELEMENTS_CLASS, 'none');
+        const addFunctionShowElementsAfterDelay = setInterval(() => {
+          if (window.smartplayer.instances[0].mounted) {
+            player = window.smartplayer.instances[0];
+            player.events.events.timeupdate.push(showElementsAfterDelay);
+            clearInterval(addFunctionShowElementsAfterDelay);
+          }
+        }, 100)
+    }   
+    </script>
+
+  </body>
+</html>
